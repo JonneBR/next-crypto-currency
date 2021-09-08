@@ -6,29 +6,40 @@ const Nav = styled.nav`
   height: 80px;
   background-color: #000;
   color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const StyledLink = styled.a`
+  padding: 0rem 2rem;
 `;
 
 const Navbar = () => {
   return (
     <Nav>
       <div>
-        <Link href='/'>
-          <a>NCC</a>
+        <Link href='/' passHref>
+          <StyledLink>NCC</StyledLink>
         </Link>
       </div>
+
       <div>
-        <Link href='/'>
-          <a>Home</a>
+        <Link href='/' passHref>
+          <StyledLink>Home</StyledLink>
         </Link>
-      </div>
-      <div>
-        <Link href='/about'>
-          <a>About</a>
+        <Link href='/about' passHref>
+          <StyledLink>About</StyledLink>
         </Link>
-      </div>
-      <div>
-        <Link href='/contact'>
-          <a>Contact</a>
+
+        <Link href='/contact' passHref>
+          <StyledLink>Contact</StyledLink>
+        </Link>
+
+        <Link href='/login' passHref>
+          <StyledLink onClick={() => localStorage.removeItem('access_token')}>
+            Sair
+          </StyledLink>
         </Link>
       </div>
     </Nav>
