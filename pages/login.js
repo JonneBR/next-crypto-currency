@@ -1,20 +1,23 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import {
+  ButtonLogin,
+  ButtonWrapper,
+  LoginContainer,
+  LoginHeader,
+  LoginWrapper,
+} from '../app/components/pages/login/styles/LoginElements';
+import {
+  DinamicallyWidthInput,
+  InputTitle,
+  InputWrapper,
+} from '../styles/InputElements';
 import withAuth from './Auth/withAuth';
 
 const Hero = styled.div`
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100vh;
   background: #fff;
-`;
-
-const Heading = styled.h1`
-  color: #000;
-  font-size: 10rem;
-  font-weight: 900;
 `;
 
 export default function Login() {
@@ -36,7 +39,27 @@ export default function Login() {
   return (
     <>
       <Hero>
-        <Heading>LOGIN</Heading>
+        <LoginContainer>
+          <LoginWrapper>
+            <LoginHeader>LOG IN</LoginHeader>
+            <InputWrapper>
+              <InputTitle>Email</InputTitle>
+              <DinamicallyWidthInput
+                style={{ width: '20rem' }}
+              ></DinamicallyWidthInput>
+            </InputWrapper>
+
+            <InputWrapper>
+              <InputTitle>Password</InputTitle>
+              <DinamicallyWidthInput
+                style={{ width: '20rem' }}
+              ></DinamicallyWidthInput>
+            </InputWrapper>
+            <ButtonWrapper>
+              <ButtonLogin>Login</ButtonLogin>
+            </ButtonWrapper>
+          </LoginWrapper>
+        </LoginContainer>
       </Hero>
       <button onClick={handleLogin}>Logar</button>
     </>
